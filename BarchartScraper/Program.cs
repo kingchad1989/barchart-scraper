@@ -9,6 +9,8 @@ namespace BarchartScraper
             var cookies = SeleniumPageHelper.GetCookies();
             var apiClient = new ApiClient(cookies);
             var optionsResponse = await apiClient.GetOptions();
+            var excelHelper = new ExcelHelper();
+            await excelHelper.WriteOptionsResponseToExcelFile(optionsResponse);
         }
     }
 }
